@@ -9,7 +9,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "traversable-applicative-compilation-error",
     scalacOptions ++= Seq(
-      "-Xlog-implicits"
+      "-Vimplicits"
     ),
     libraryDependencies += scalaTest % Test,
     libraryDependencies += "org.typelevel" %% "cats-core" % "2.0.0"

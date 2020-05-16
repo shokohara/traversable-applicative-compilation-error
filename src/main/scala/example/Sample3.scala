@@ -1,9 +1,8 @@
 package example
 
-import cats.{Applicative, Traverse}
-import cats.implicits._
+import cats.{Applicative, Functor, Traverse}
 
 class Sample3[F[_]: Traverse: Applicative](data: Option[Sample1[F]]) {
   cats.instances.option.catsStdInstancesForOption
-    .traverse(data)(_.hoge.fmap(_ => ()))
+    .traverse(data)(a => Applicative[F].fmap(a.hoge)(_ => ()))
 }
